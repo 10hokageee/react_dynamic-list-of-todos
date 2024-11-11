@@ -16,10 +16,14 @@ export const TodoFilter: React.FC<Props> = ({
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newFilter = event.target.value as FilterOptions;
+    const newValue = event.target.value;
 
-    setFilter(newFilter);
-    onFilterChange(newFilter);
+    if (Object.values(FilterOptions).includes(newValue as FilterOptions)) {
+      const newFilter = newValue as FilterOptions;
+
+      setFilter(newFilter);
+      onFilterChange(newFilter);
+    }
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {

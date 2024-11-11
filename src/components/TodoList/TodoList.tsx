@@ -64,8 +64,8 @@ export const TodoList: React.FC<Props> = ({
                 <span className="icon">
                   <i
                     className={cn('far', {
-                      'fa-eye-slash': iconState[todo.id],
-                      'fa-eye': !iconState[todo.id],
+                      'fa-eye-slash': iconState[todo.id] ?? false,
+                      'fa-eye': !(iconState[todo.id] ?? false),
                     })}
                   />
                 </span>
